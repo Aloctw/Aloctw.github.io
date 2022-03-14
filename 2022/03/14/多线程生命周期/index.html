@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hello World | Aloctw</title>
+  <title itemprop="name">Aloctw</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -406,26 +406,88 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">Hello World</h1>
-            <p class="entry-census">&nbsp;·&nbsp;2022-3-12&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+            <h1 class="entry-title"></h1>
+            <p class="entry-census">&nbsp;·&nbsp;2022-3-14&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
           </header>
         
         <div class="entry-content">
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+          <h2 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1.生命周期"></a>1.生命周期</h2><h3 id="1-1-多线程生命周期的六种状态（官方文档）"><a href="#1-1-多线程生命周期的六种状态（官方文档）" class="headerlink" title="1.1 多线程生命周期的六种状态（官方文档）"></a>1.1 多线程生命周期的六种状态（官方文档）</h3><ul>
+<li><p>线程的状态我们可以在api文档中搜索Thread.State便可以得到下列的六种状态。</p>
+<p>| 线程状态                       | 描述               | 官方解释（api）                                              |<br>| —————————— | —————— | ———————————————————— |<br>| 新建状态（NEW）                | 创建线程对象       | 线程尚未开始在这个国家                                       |<br>| 可运行状态（RUNNABLE）         | start()方法        | 正在java虚拟机中执行的线程                                   |<br>| 阻塞状态（BLOCKED）            | 无法获得锁对象     | 受阻塞并等待某个监视器锁的线程                               |<br>| 无限等待状态（WAITING）        | wait()，join()方法 | 处于这种状态的线程被无限期地等待另一个线程来执行特定的动作。 |<br>| 超时等待状态（TIMEND_WAITING） | sleep()方法        | 无限期的等待另一个线程来执行某一特定操作的线程               |<br>| 终止状态（TERMINATED）         | 全部代码运行完毕   | 已退出的线程处于这种状态                                     |</p>
+<p>（附图）网上copy来的</p>
+<p><img src="C:\Users\Lucky\Desktop\1.jpg" alt="1"></p>
+</li>
+<li><p>Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态，线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换</p>
+</li>
+<li>这些状态是不反映任何操作系统线程状态的虚拟机状态</li>
+</ul>
+<h3 id="1-2-生命周期六种状态源码"><a href="#1-2-生命周期六种状态源码" class="headerlink" title="1.2 生命周期六种状态源码"></a>1.2 生命周期六种状态源码</h3><pre><code class="java">public enum State {
+        /**
+         * Thread state for a thread which has not yet started.
+         */
+        NEW,
+
+        /**
+         * Thread state for a runnable thread.  A thread in the runnable
+         * state is executing in the Java virtual machine but it may
+         * be waiting for other resources from the operating system
+         * such as processor.
+         */
+        RUNNABLE,
+
+        /**
+         * Thread state for a thread blocked waiting for a monitor lock.
+         * A thread in the blocked state is waiting for a monitor lock
+         * to enter a synchronized block/method or
+         * reenter a synchronized block/method after calling
+         * {@link Object#wait() Object.wait}.
+         */
+        BLOCKED,
+
+        /**
+         * Thread state for a waiting thread.
+         * A thread is in the waiting state due to calling one of the
+         * following methods:
+         * &lt;ul&gt;
+         *   &lt;li&gt;{@link Object#wait() Object.wait} with no timeout&lt;/li&gt;
+         *   &lt;li&gt;{@link #join() Thread.join} with no timeout&lt;/li&gt;
+         *   &lt;li&gt;{@link LockSupport#park() LockSupport.park}&lt;/li&gt;
+         * &lt;/ul&gt;
+         *
+         * &lt;p&gt;A thread in the waiting state is waiting for another thread to
+         * perform a particular action.
+         *
+         * For example, a thread that has called &lt;tt&gt;Object.wait()&lt;/tt&gt;
+         * on an object is waiting for another thread to call
+         * &lt;tt&gt;Object.notify()&lt;/tt&gt; or &lt;tt&gt;Object.notifyAll()&lt;/tt&gt; on
+         * that object. A thread that has called &lt;tt&gt;Thread.join()&lt;/tt&gt;
+         * is waiting for a specified thread to terminate.
+         */
+        WAITING,
+
+        /**
+         * Thread state for a waiting thread with a specified waiting time.
+         * A thread is in the timed waiting state due to calling one of
+         * the following methods with a specified positive waiting time:
+         * &lt;ul&gt;
+         *   &lt;li&gt;{@link #sleep Thread.sleep}&lt;/li&gt;
+         *   &lt;li&gt;{@link Object#wait(long) Object.wait} with timeout&lt;/li&gt;
+         *   &lt;li&gt;{@link #join(long) Thread.join} with timeout&lt;/li&gt;
+         *   &lt;li&gt;{@link LockSupport#parkNanos LockSupport.parkNanos}&lt;/li&gt;
+         *   &lt;li&gt;{@link LockSupport#parkUntil LockSupport.parkUntil}&lt;/li&gt;
+         * &lt;/ul&gt;
+         */
+        TIMED_WAITING,
+
+        /**
+         * Thread state for a terminated thread.
+         * The thread has completed execution.
+         */
+        TERMINATED;
+    }
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
         <!-- .entry-content -->
@@ -457,7 +519,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2022/03/14/多线程生命周期/" rel="prev">
+            <a href="/2022/03/14/多线程/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
               </div>
@@ -475,15 +537,15 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/12/12/Hexo-Theme-Sakura/" rel="next">
+            <a href="/2022/03/12/hello-world/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Hexo-Theme-Sakura</h3>
+                Hello World</h3>
                 <hr>
               </div>
             </a>
