@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Aloctw</title>
   
-  
+  <subtitle>のblod</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aloctw.github.io/"/>
-  <updated>2022-03-01T08:06:26.790Z</updated>
+  <updated>2022-03-22T06:25:42.674Z</updated>
   <id>https://aloctw.github.io/</id>
   
   <author>
@@ -17,33 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://aloctw.github.io/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/"/>
-    <id>https://aloctw.github.io/2022/03/14/线程与进程/</id>
-    <published>2022-03-14T03:39:44.625Z</published>
-    <updated>2022-03-01T08:06:26.790Z</updated>
+    <title>jdbc</title>
+    <link href="https://aloctw.github.io/2022/03/21/jdbc/"/>
+    <id>https://aloctw.github.io/2022/03/21/jdbc/</id>
+    <published>2022-03-21T12:26:24.000Z</published>
+    <updated>2022-03-22T06:25:42.674Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、线程与线程&quot;&gt;&lt;a href=&quot;#1、线程与线程&quot; class=&quot;headerlink&quot; title=&quot;1、线程与线程&quot;&gt;&lt;/a&gt;1、线程与线程&lt;/h2&gt;&lt;h3 id=&quot;1-1-进程&quot;&gt;&lt;a href=&quot;#1-1-进程&quot; class=&quot;headerlink&quot;
-        
-      
-    
     </summary>
+    
+      <category term="技术" scheme="https://aloctw.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>https://aloctw.github.io/2022/03/14/多线程/</id>
-    <published>2022-03-14T03:39:44.610Z</published>
-    <updated>2022-03-01T08:12:09.627Z</updated>
+    <link href="https://aloctw.github.io/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/"/>
+    <id>https://aloctw.github.io/2022/03/14/线程与进程/</id>
+    <published>2022-03-14T03:39:44.625Z</published>
+    <updated>2022-03-01T08:06:26.790Z</updated>
     
     <summary type="html">
     
@@ -74,6 +68,28 @@
         
         
           &lt;h2 id=&quot;1-生命周期&quot;&gt;&lt;a href=&quot;#1-生命周期&quot; class=&quot;headerlink&quot; title=&quot;1.生命周期&quot;&gt;&lt;/a&gt;1.生命周期&lt;/h2&gt;&lt;h3 id=&quot;1-1-多线程生命周期的六种状态（官方文档）&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://aloctw.github.io/2022/03/14/多线程/</id>
+    <published>2022-03-14T03:39:44.610Z</published>
+    <updated>2022-03-01T08:12:09.627Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、线程与线程&quot;&gt;&lt;a href=&quot;#1、线程与线程&quot; class=&quot;headerlink&quot; title=&quot;1、线程与线程&quot;&gt;&lt;/a&gt;1、线程与线程&lt;/h2&gt;&lt;h3 id=&quot;1-1-进程&quot;&gt;&lt;a href=&quot;#1-1-进程&quot; class=&quot;headerlink&quot;
         
       
     
