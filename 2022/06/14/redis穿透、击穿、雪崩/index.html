@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jdbc, Aloctw">
-    <meta name="description" content="">
+    <meta name="keywords" content="redis穿透、击穿、雪崩, Aloctw">
+    <meta name="description" content="Redis 缓存异常一、缓存雪崩  缓存雪崩是指缓存的 key 在同一时间大面积的失效，所以后面的请求都会落到数据库上面，造成数据库在短时间内承受大量请求而宕机。
+解决方案：
+
+缓存数据的过期时间设置随机，防止同一时间大量数据同时过期现象发">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jdbc | Aloctw</title>
+    <title>redis穿透、击穿、雪崩 | Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jdbc</h1>
+                    <h1 class="description center-align post-title">redis穿透、击穿、雪崩</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
+                            <a href="/categories/redis/" class="post-category">
+                                redis
                             </a>
                         
                     </div>
@@ -453,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-06-14
                 </div>
                 
 
@@ -474,7 +477,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Redis-缓存异常"><a href="#Redis-缓存异常" class="headerlink" title="Redis 缓存异常"></a>Redis 缓存异常</h1><h2 id="一、缓存雪崩"><a href="#一、缓存雪崩" class="headerlink" title="一、缓存雪崩"></a>一、缓存雪崩</h2><p>  缓存雪崩是指缓存的 key 在同一时间大面积的失效，所以后面的请求都会落到数据库上面，造成数据库在短时间内承受大量请求而宕机。</p>
+<p>解决方案：</p>
+<ul>
+<li>缓存数据的过期时间设置随机，防止同一时间大量数据同时过期现象发生。</li>
+<li>一般并发量不是特别多的时候，使用最多的解决方案是加锁排队。</li>
+<li>给每一个缓存数据增加响应的缓存标记，记录缓存是否失效，如果缓存标记失效则更新数据缓存。</li>
+</ul>
+<h2 id="二、缓存穿透"><a href="#二、缓存穿透" class="headerlink" title="二、缓存穿透"></a>二、缓存穿透</h2><p>  缓存穿透是指用户请求缓存和数据库中都没有的数据，导致请求落在数据库上，造成数据短时间内承受大量请求而宕机。</p>
+<p>解决方案：</p>
+<ul>
+<li>可以在缓存中增加一个 key-null 值，用户请求时直接返回一个 null 值。缓存的有效时间可以设置短一点，设置太长可能导致正常情况也无法使用。</li>
+<li>可以采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的 bitmap 中，一个一定不存在的数据会被这个 bitmap 拦截掉，从而避免了对底层存储系统的查询压力。</li>
+</ul>
+<h2 id="三、缓存击穿"><a href="#三、缓存击穿" class="headerlink" title="三、缓存击穿"></a>三、缓存击穿</h2><p>  缓存击穿是指一个 key 非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个 key 在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞，数据库瞬间压力过大宕机。</p>
+<p>解决方案：</p>
+<ul>
+<li><p>如果这个 key 被经常访问说明这是个热点 key ，可以设置这个热点 key 永不过期。</p>
+</li>
+<li><p>加互斥锁，使用 mutex 。简单地来说，就是在缓存失效的时候（判断拿出来的值为空），不是立即去 load db，而是先使用缓存工具的某些带成功操作返回值的操作，比如 Redis 的 SETNX 去 set 一个 mutex key，当操作返回成功时，再进行 load db 的操作并回设缓存；</p>
+<p>也就是对缓存查询加锁，如果 KEY 不存在，就加锁，然后查数据库入缓存，然后解锁；其他进程如果发现有锁就等待，然后等解锁后返回数据。</p>
+</li>
+</ul>
+<h2 id="四、缓存预热"><a href="#四、缓存预热" class="headerlink" title="四、缓存预热"></a>四、缓存预热</h2><p>  缓存预热是指系统上限之后，将相关的缓存数据直接加载到缓存当中，这样可以避免在用户请求的时候直接查询数据库，这样用户直接请求到已被加载到缓存中数据。</p>
+<p>解决方案：</p>
+<ul>
+<li>直接写个缓存刷新页面，上线前手工操作。</li>
+<li>相关的数据量不大的时候，可以在项目启动时自动加载。</li>
+<li>定时刷新缓存。</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -500,7 +532,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/21/jdbc/">https://aloctw.github.io/2022/03/21/jdbc/</a>
+                    <a href="https://aloctw.github.io/2022/06/14/redis%E7%A9%BF%E9%80%8F%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E9%9B%AA%E5%B4%A9/">https://aloctw.github.io/2022/06/14/redis%E7%A9%BF%E9%80%8F%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E9%9B%AA%E5%B4%A9/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,7 +1011,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
+                <a href="/2022/07/03/ajax%E5%90%91%E5%90%8E%E7%AB%AF%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/">
                     <div class="card-image">
                         
                         
@@ -996,7 +1028,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
                         </span>
                         <span class="publish-author">
                             
@@ -1016,7 +1048,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/2022/06/03/IO%E6%B5%81/">
                     <div class="card-image">
                         
                         
@@ -1033,7 +1065,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
                             </span>
                         <span class="publish-author">
                             
