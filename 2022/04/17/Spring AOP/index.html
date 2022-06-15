@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jdbc, Aloctw">
-    <meta name="description" content="">
+    <meta name="keywords" content="Aloctw">
+    <meta name="description" content="一、Spring AOP1、 什么是 AOP描述：Aop也叫面向切面编程，他同OOP面向对象编程一样，只是一种编程思想。具体的作用就是为了对OOP互补，OOP的编程思想是自上而下，然而有的时候我们需要从中间加入某一些特殊的方法。因此Aop正">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jdbc | Aloctw</title>
+    <title>Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jdbc</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -437,15 +437,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -453,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-04-17
                 </div>
                 
 
@@ -474,7 +465,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="一、Spring-AOP"><a href="#一、Spring-AOP" class="headerlink" title="一、Spring AOP"></a>一、Spring AOP</h1><h2 id="1、-什么是-AOP"><a href="#1、-什么是-AOP" class="headerlink" title="1、 什么是 AOP"></a>1、 什么是 AOP</h2><p>描述：Aop也叫面向切面编程，他同OOP面向对象编程一样，只是一种编程思想。具体的作用就是为了对OOP互补，OOP的编程思想是自上而下，然而有的时候我们需要从中间加入某一些特殊的方法。因此Aop正好就帮我们实现了这个功能。</p>
+<p>用途：aop主要用在日志输出，在不改变原来代码的基础之上，我们可以加入自己的一些代码，如日志功能、缓存功能、安全校验功能等</p>
+<h2 id="2、实现aop的主要是两种"><a href="#2、实现aop的主要是两种" class="headerlink" title="2、实现aop的主要是两种"></a>2、实现aop的主要是两种</h2><p>（1）jdk动态代理——默认就是jdk代理，jdk代理主要是代理接口</p>
+<p>（2）CGLIB动态代理——需要我们设置，CGLIB主要是代理类，如果这个类没有实现接口就可以使用CGLIB代理，如果有接口只能使用jdk动态代理。</p>
+<p>实现 BeanpostProcessor  bean后处理器</p>
+<p>定义两个属性</p>
+<p>private 代理对象</p>
+<p>private 拦截器</p>
+<h3 id="Spring事物管理"><a href="#Spring事物管理" class="headerlink" title="Spring事物管理"></a>Spring事物管理</h3><ol>
+<li><p>简述<br> 在声明式的事务处理中，要配置一个切面，其中就用到了propagation，表示打算对这些方法怎么使用事务，是用还是不用，其中propagation有七种配置，REQUIRED、SUPPORTS、MANDATORY、REQUIRES_NEW、NOT_SUPPORTED、NEVER、NESTED。默认是REQUIRED。</p>
+</li>
+<li><p>Spring中七种Propagation类的事务属性详解：</p>
+<p>REQUIRED：支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。</p>
+<p>SUPPORTS：支持当前事务，如果当前没有事务，就以非事务方式执行。</p>
+<p>MANDATORY：支持当前事务，如果当前没有事务，就抛出异常。</p>
+<p>REQUIRES_NEW：新建事务，如果当前存在事务，把当前事务挂起。</p>
+<p>NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</p>
+<p>NEVER：以非事务方式执行，如果当前存在事务，则抛出异常。</p>
+<p>NESTED：支持当前事务，如果当前事务存在，则执行一个嵌套事务，如果当前没有事务，就新建一个事务。</p>
+</li>
+<li><p>注意事项<br> 这些配置将影响数据存储，必须根据情况选择。</p>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -500,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/21/jdbc/">https://aloctw.github.io/2022/03/21/jdbc/</a>
+                    <a href="https://aloctw.github.io/2022/04/17/Spring%20AOP/">https://aloctw.github.io/2022/04/17/Spring%20AOP/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,7 +993,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
+                <a href="/2022/04/17/Spring/">
                     <div class="card-image">
                         
                         
@@ -996,7 +1010,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
                         </span>
                         <span class="publish-author">
                             
@@ -1016,7 +1030,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
                         
                         
@@ -1033,7 +1047,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
                             </span>
                         <span class="publish-author">
                             

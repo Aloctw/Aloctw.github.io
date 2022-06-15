@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jdbc, Aloctw">
-    <meta name="description" content="">
+    <meta name="keywords" content="Aloctw">
+    <meta name="description" content="一、关于MyBatis  持久层可以将业务数据存储到磁盘，具备长期存储能力，只要磁盘不损坏（大部分的重要数据都会有相关的备份机制)，在断电或者其他情况下，重新开启系统仍然可以读取这些数据。
+   Mybatis 是一个优秀的持久层框架，它对">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jdbc | Aloctw</title>
+    <title>Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jdbc</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -437,15 +438,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -453,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-04-06
                 </div>
                 
 
@@ -474,7 +466,174 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="一、关于MyBatis"><a href="#一、关于MyBatis" class="headerlink" title="一、关于MyBatis"></a>一、关于MyBatis</h2><p>  持久层可以将业务数据存储到磁盘，具备长期存储能力，只要磁盘不损坏（大部分的重要数据都会有相关的备份机制)，在断电或者其他情况下，重新开启系统仍然可以读取这些数据。</p>
+<p>   Mybatis 是一个优秀的持久层框架，它对 jdbc 的操作数据库的过程进行封装，使得开发者只需要专注 于 SQL 语句本身，而不用去关心注册驱动，创建 connection 等 Mybatis 通过 xml 文件配置或者注解的方式将要执行的各种 statement 配置起来，并通过 java 对象 和statement中的sql进行映射成最终执行的sql语句，最后由Mybatis框架执行sql并将结果映射成java 对象并返回。</p>
+<p>   不屏蔽 SQL 意味着可以更为精确地定位 SQL 语句，可以对其进行优化和改造， 这有利于互联网系统性能的提高，符合互联网需要性能优化的特点。</p>
+<p>  并且它提供强大、灵活的映射机制 ，方便 Java 开发者使用 。提供动态 SQL 的功能，允许 我们根据不同条件组装 SQL ，这个功能远比其他工具或者 Java 编码的可读性和可维 护性高得多，满足各种应用系统的同时也满足了需求经常变化的互联网应用的要 求。</p>
+<p>  在MyBatis 中，提供了使用 Mapper 的接口编程，只要 个接口和 XML 就能创 建映射器，进一步简化我们的工作，使得很多框架 API MyBatis 中消失，开发者 能更集中于业务逻辑 。</p>
+<h2 id="二、MyBatis的核心组件"><a href="#二、MyBatis的核心组件" class="headerlink" title="二、MyBatis的核心组件"></a>二、MyBatis的核心组件</h2><p>  MyBatis的核心组件分为四个部分：</p>
+<p>  1.SqlSessionFactoryBuilder(构造器)：它会根据配置或者代码来生成SqlSessionFactory采用的是分布构建的Builder模式。</p>
+<p>  2.SqlSessionFactory (工厂接口)：依靠它来生成 SqlSession，使用的是工厂模式。</p>
+<p>  3.SqlSession（会话):一个既可以发送SQL执行返回结果，也可以获取 Mapper 的接口。在现有的技术中，一般我们会让其在业务逻辑代码中“消失”，而使用的是MyBatis提供的SQL Mapper 接口编程技术，它能提高代码的可读性和可维护性。</p>
+<p>  4.SQL Mapper（映射器):MyBatis 新设计存在的组件，它由一个Java 接口和 XML文件（或注解）构成，需要给出对应的SQL 和映射规则。它负责发送SQL去执行,并返回结果。</p>
+<h2 id="三、使用XML构建SQLSessionFactory"><a href="#三、使用XML构建SQLSessionFactory" class="headerlink" title="三、使用XML构建SQLSessionFactory"></a>三、使用XML构建SQLSessionFactory</h2><p>  在MyBatis中的XML文件分为两类，一类是基础配置文件，通常只有一个，主要是配置一些最基本的上下文参数和运行环境；另一类是映射文件，它可以配置映射关系、SQL、参数等信息。</p>
+<p>​	配置文件名可自定义</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"UTF-8"</span> <span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 引入xml的约束文件：约束当前xml文档中能使用什么标签
+      xml：可以扩展标记语言，描述信息的方式是标签
+      xml的约束文件分两种
+      dtd<span class="token operator">:</span> Mybatis使用的就是这种
+      schema：spring使用的就是这种<span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE configuration
+        PUBLIC <span class="token string">"-//mybatis.org//DTD Config 3.0//EN"</span>
+        <span class="token string">"http://mybatis.org/dtd/mybatis-3-config.dtd"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>configuration<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>typeAliases<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>
+            指定包下的所有类都有别名：类的全限定类名去掉包名，剩下的部分不区分大小写
+        <span class="token operator">--</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token keyword">package</span> name<span class="token operator">=</span><span class="token string">"com.dyh.pojo"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>typeAliases<span class="token operator">></span>
+
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>  enviroments标签配置多种数据库环境  <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>environments <span class="token keyword">default</span><span class="token operator">=</span><span class="token string">"dev"</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>environment id<span class="token operator">=</span><span class="token string">"dev"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> transactionManager 事务管理器 <span class="token operator">--</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> JDBC – 这个配置直接简单使用了 JDBC 的提交和回滚设置。它依赖于从数据源得到的连接来管理事务范围。
+                MANAGED – 这个配置几乎没做什么。它从来不提交或回滚一个连接。而它会让容器来管理事务的整个生命周期
+            （比如 Spring 或 JEE 应用服务器的上下文）。默认情况下它会关闭连接。
+            <span class="token operator">--</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>transactionManager type<span class="token operator">=</span><span class="token string">"JDBC"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>transactionManager<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 连接数据库 <span class="token operator">--</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> POOLED 连接池（数据源），其实就是一个容器（集合），存放数据库连接的容器 <span class="token operator">--</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>dataSource type<span class="token operator">=</span><span class="token string">"POOLED"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"driver"</span> value<span class="token operator">=</span><span class="token string">"com.mysql.jdbc.Driver"</span><span class="token operator">/</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"url"</span> value<span class="token operator">=</span><span class="token string">"jdbc:mysql://127.0.0.1/d_movie"</span><span class="token operator">/</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"username"</span> value<span class="token operator">=</span><span class="token string">"root"</span><span class="token operator">/</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"password"</span> value<span class="token operator">=</span><span class="token string">"123456"</span><span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>dataSource<span class="token operator">></span>
+
+        <span class="token operator">&lt;</span><span class="token operator">/</span>environment<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span><span class="token operator">/</span>environments<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>将映射文件加载到mybatis的配置文件中
+       mappers会扫描指定的包，Mybatis会为指定包下所有映射器
+     <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>mappers<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token keyword">package</span> name<span class="token operator">=</span><span class="token string">"com.dyh.dao"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>mappers<span class="token operator">></span>
+    
+<span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、SqlSession"><a href="#四、SqlSession" class="headerlink" title="四、SqlSession"></a>四、SqlSession</h2><p>​	在MyBatis 中, SqISession是其核心接口。在MyBatis中有两个实现类, DefaultSqlSession和SqlSessionManager。DefaultSqlSession是单线程使用的，而SqlSessionManager在多线程环境下使用。SqlSession的作用类似于一个 JDBC 中的 Connection对象，代表着一个连接资源的启用。具体而言，它的作用有3个：获取Mapper接口，发送SQL给数据库，控制数据库事务。</p>
+<p>  有了SqlSessionFactory创建SqlSession是非常简单的，注意SqlSession只是一个门面接口，真正执行业务语句的是底层的Executor！</p>
+<p>​	我这里编写了一个工具类用来加载配置文件</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>uilt<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Resources<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>session<span class="token punctuation">.</span>SqlSession<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>session<span class="token punctuation">.</span>SqlSessionFactory<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>session<span class="token punctuation">.</span>SqlSessionFactoryBuilder<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>InputStream<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * @BelongsProject: Mybatis_02
+ * @BelongsPackage: com.dyh.pojo
+ * @Description:
+ * @Author: Lucky
+ * @Date: 2022/4/11 19:42
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Uilts</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token function">Uilts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> SqlSessionFactory factory<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> SqlSessionFactory <span class="token function">getSqlSessionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>factory <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                InputStream is <span class="token operator">=</span> Resources<span class="token punctuation">.</span><span class="token function">getResourceAsStream</span><span class="token punctuation">(</span><span class="token string">"mybatis-config.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlSessionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> factory<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> SqlSession <span class="token function">getSqlSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>factory <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getSqlSessionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> factory<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="五、映射器"><a href="#五、映射器" class="headerlink" title="五、映射器"></a>五、映射器</h2><p>  映射器是MyBatis中最重要也是最复杂的组件，它由一个接口和一个对应的XML文件组成。</p>
+<p>  它可以配置以下内容：</p>
+<ul>
+<li><p>描述映射规则</p>
+</li>
+<li><p>提供SQL语句，并可以配置SQL参数类型、返回类型、缓存刷新等信息 </p>
+</li>
+<li><p>配置缓存</p>
+</li>
+<li><p>提供动态SQL</p>
+<p>定义一个映射器接口：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>dao<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/**
+ * @BelongsProject: Mybatis_02
+ * @BelongsPackage: com.dyh.dao
+ * @Description:
+ * @Author: Lucky
+ * @Date: 2022/4/11 19:43
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
+
+    User <span class="token function">getById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置映射文件</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE mapper
+        PUBLIC <span class="token string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>
+        <span class="token string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>mapper namespace<span class="token operator">=</span><span class="token string">"com.dyh.dao.UserMapper"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>
+       使用resultMap标签来手动映射：定义字段和属性的映射规则
+       id属性：一套映射规则的标识符<span class="token punctuation">,</span>名称任意
+       type属性： 封装的对象类型（可以使用全限定类名或别名）
+   <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>resultMap id<span class="token operator">=</span><span class="token string">"UserMap"</span> type<span class="token operator">=</span><span class="token string">"User"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>id column<span class="token operator">=</span><span class="token string">"m_id"</span> property<span class="token operator">=</span><span class="token string">"id"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>id<span class="token operator">></span>
+        <span class="token operator">&lt;</span>result column<span class="token operator">=</span><span class="token string">"m_name"</span> property<span class="token operator">=</span><span class="token string">"name"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>result<span class="token operator">></span>
+        <span class="token operator">&lt;</span>result column<span class="token operator">=</span><span class="token string">"m_picse"</span> property<span class="token operator">=</span><span class="token string">"picse"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>result<span class="token operator">></span>
+        <span class="token operator">&lt;</span>result column<span class="token operator">=</span><span class="token string">"m_author"</span> property<span class="token operator">=</span><span class="token string">"author"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>result<span class="token operator">></span>
+        <span class="token operator">&lt;</span>result column<span class="token operator">=</span><span class="token string">"m_date"</span> property<span class="token operator">=</span><span class="token string">"sqlDate"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>result<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>resultMap<span class="token operator">></span>
+
+
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>更具id查询数据<span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>select id<span class="token operator">=</span><span class="token string">"getById"</span> resultMap<span class="token operator">=</span><span class="token string">"UserMap"</span><span class="token operator">></span>
+        select <span class="token operator">*</span> from movie where m_id <span class="token operator">=</span> #<span class="token punctuation">{</span>id<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>select<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>mapper<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在这里面我使用了是自定义映射（resultMap），将我们从数据库获取的数据封装到我们自定义的属性中去（进行手动映射）。</p>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -500,7 +659,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/21/jdbc/">https://aloctw.github.io/2022/03/21/jdbc/</a>
+                    <a href="https://aloctw.github.io/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">https://aloctw.github.io/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,7 +1138,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
+                <a href="/2022/04/17/Spring%20AOP/">
                     <div class="card-image">
                         
                         
@@ -996,7 +1155,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
                         </span>
                         <span class="publish-author">
                             
@@ -1016,13 +1175,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/2022/03/21/jdbc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="jdbc">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">jdbc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1033,12 +1192,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Aloctw
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>

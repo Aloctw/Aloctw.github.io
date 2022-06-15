@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jdbc, Aloctw">
-    <meta name="description" content="">
+    <meta name="keywords" content="Aloctw">
+    <meta name="description" content="一、 动态代理模式代理： 生成一个代理对象，来代理真实对象，从而控制真实对象的访问
+1、静态代理在编译期需要程序员通过程序自定义代理类和创建代理对象
+2、动态代理JDK动态（Dynamic）代理
+​		javase提供了动态产生代理对象的A">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jdbc | Aloctw</title>
+    <title>Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jdbc</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -437,15 +440,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -453,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-05-10
                 </div>
                 
 
@@ -474,7 +468,133 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="一、-动态代理模式"><a href="#一、-动态代理模式" class="headerlink" title="一、 动态代理模式"></a>一、 动态代理模式</h1><p>代理： 生成一个代理对象，来代理真实对象，从而控制真实对象的访问</p>
+<h2 id="1、静态代理"><a href="#1、静态代理" class="headerlink" title="1、静态代理"></a>1、静态代理</h2><p>在编译期需要程序员通过程序自定义代理类和创建代理对象</p>
+<h2 id="2、动态代理"><a href="#2、动态代理" class="headerlink" title="2、动态代理"></a>2、动态代理</h2><p>JDK动态（Dynamic）代理</p>
+<p>​		javase提供了动态产生代理对象的API，JDK动态代理需要业务接口，在程序运行过程中动态产生代理对象</p>
+<h3 id="1、代理类完成的功能"><a href="#1、代理类完成的功能" class="headerlink" title="1、代理类完成的功能"></a>1、代理类完成的功能</h3><p>1.目标类中方法的调用<br>2.功能增强<br>2.动态代理<br>在静态代理中目标类很多时候，可以使用动态代理，避免静态代理的缺点。<br>动态代理中目标类即使很多，1) 代理类数量可以很少，2) 当你修改了接口中的方法时，不会影响代理类。<br>**动态代理 **: 在程序执行过程中，使用jdk的反射机制，创建代理类对象，并动态的指定要代理目标类。<br>换句话说:动态代理是一种创建java对象的能力，让你不用创建代理类，就能创建代理类对象。<br>在java中，要想创建对象:<br>1.创建类文件，java文 件编译为class<br>2.使用构造方法，创建类的对象。</p>
+<p><strong>动态代理的实现</strong>:  </p>
+<p>1、jdk动态代理(理解):使用java反射包中的类和接口实现动态代理的功能。<br>反射包java. lang. reflect，里面有三个类: InvocationHandler ，Method, Proxy .</p>
+<p>2、cglib动态代理(了解) : cglib是第三方的工具库，创建代理对象。cglib的原理是继承，cglib通过继承 目标类，创建它的子类，在子类中重写父类中同名的方法，实现功 能的修改。因为cglib是继承，重写方法，所以要求目标类不能是fina1的，方 法也不能是final的。cglik的要求目标类比较宽松，只要能继承就可以了。cglib在很多的框架中使用,比如mybatis，spring框架 中都有使用。</p>
+<h3 id="2、jdk动态代理"><a href="#2、jdk动态代理" class="headerlink" title="2、jdk动态代理:"></a>2、jdk动态代理:</h3><h4 id="1、反射："><a href="#1、反射：" class="headerlink" title="1、反射："></a><strong>1、反射</strong>：</h4><p>Method类，表示方法。类中的方法。通 过Method可以执行某个方法。</p>
+<h4 id="2、jdk动态代理的实现："><a href="#2、jdk动态代理的实现：" class="headerlink" title="2、jdk动态代理的实现："></a><strong>2、jdk动态代理的实现</strong>：</h4><p>反射包java. lang. reflect，里面有三个类:InvocationHandler，Method, Proxy .</p>
+<h4 id="3、InvocationHandler接口"><a href="#3、InvocationHandler接口" class="headerlink" title="3、InvocationHandler接口"></a><strong>3、InvocationHandler接口</strong></h4><p>( 调用处理器) :就- - 个方法invoke ( )<br>invoke():表示代理对象要执行的功能代码。你的代理类要完成的功能就写在invoke()方法中。</p>
+<p><strong>代理类完成的功能</strong></p>
+<p>1.调用目标方法，执行目标方法的功能<br>2.功能增强，在目标方法调用时，增加功能。</p>
+<h3 id="3、方法原型"><a href="#3、方法原型" class="headerlink" title="3、方法原型"></a>3、方法原型</h3><p>参数:<br>object proxy : jdk创建的代理对象，无需赋值。<br>Method method:目标类中的方法，jdk提供method对 象的<br>object[] args:目标类中方法的参数，jdk提供的。<br>public object invoke (object proxy, Method method, object[] args)</p>
+<h5 id="1、InvocationHandler接口"><a href="#1、InvocationHandler接口" class="headerlink" title="1、InvocationHandler接口"></a>1、InvocationHandler接口</h5><p>表示你的代理要干什么。<br>怎么用:<br>1、创建类实现接口InvocationHandler<br>2、重写invoke ( )方法,<br>把原来静态代理中代理类要完成的功能，写在这InvocationHandler实现类中</p>
+<p>3、Method类:表示方法的，确切 的说就是目标类中的方法。<br>作用:通过Method可以执行某个目标类的方法，Method. invoke () ;<br>method. invoke (目标对象，方法的参数)</p>
+<h5 id="2、Proxy类"><a href="#2、Proxy类" class="headerlink" title="2、Proxy类"></a>2、Proxy类</h5><p>核心的对象，创建代理对象。之前创建对象都是new类的构造方法()<br>现在我们是使用Proxy类的方法，代替new的使用。<br>方法:静态方 法newProxyInstance ()</p>
+<p><strong>1、参数:</strong></p>
+<ol>
+<li><p>ClassLoader loader 类加载器，负贲向内存中加载对象的。使用 反射获取对象的ClassLoader<br> 类a，a.getCalss () . getClassLoader()，目 标对象的类加载器</p>
+</li>
+<li><p>Class&lt;?&gt;[] interfaces:<br> 接口，目标对象实现的接口，也是反射获取的。</p>
+</li>
+<li><p>InvocationHandler h :我们自己写的，用于目标对象方法增强！<br> public static object newProxyInstance (ClassLoader loader ,<br> Class&lt;?&gt;[] interfaces ,<br> InvocationHandler h)</p>
+</li>
+</ol>
+<h3 id="3、案例"><a href="#3、案例" class="headerlink" title="3、案例"></a>3、案例</h3><p>  1、首先定义目标对象</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>dongtai<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">changGe</span><span class="token punctuation">(</span>Sting string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  2、实现目标对象的方法</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>dongtai<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">implements</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">changGe</span><span class="token punctuation">(</span>String string<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>string <span class="token operator">+</span> <span class="token string">"唱歌！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  3、目标方法增强代码</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>dongtai<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ZengQiang</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">qian</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"业务前"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">hou</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"业务后"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  4、创建代理对象</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>dyh<span class="token punctuation">.</span>dongtai<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Proxy<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//实现InvocationHandler创建代理（可以用内部类实现 如下）</span>
+<span class="token comment" spellcheck="true">/*
+class B implements InvocationHandler{
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                ZengQiang.qian();
+                User user = new User();
+                Object invoke = method.invoke(user);
+                ZengQiang.hou();
+                return invoke;
+    }
+}
+ */</span>
+
+<span class="token comment" spellcheck="true">// 创建一个代理对象的方法</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Daili</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> User user<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Daili</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>user <span class="token operator">=</span> user<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+    getClass 获取字节码文件（）
+    getClassLoder 获取类加载器(字节码文件反射得到)
+    getInterfaces() 动态代理类需要实现的接口，拿到传入对象所有接口的实现类）
+                动态代理方法在执行时，会调用InvocationHandler实现类里面的invoke方法去执行
+     */</span>
+    <span class="token keyword">public</span> Object <span class="token function">getProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//内部类实现代理对象的创建 new InvocationHandler()</span>
+        <span class="token keyword">return</span> Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">InvocationHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> Object <span class="token function">invoke</span><span class="token punctuation">(</span>Object proxy<span class="token punctuation">,</span> Method method<span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+                ZengQiang<span class="token punctuation">.</span><span class="token function">qian</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                Object invoke <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                ZengQiang<span class="token punctuation">.</span><span class="token function">hou</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> invoke<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  5、测试类</p>
+<pre class="line-numbers language-JAVA"><code class="language-JAVA">package com.dyh.dongtai;
+
+public class TextUser {
+    public static void main(String[] args) {
+        //创建实现类
+        User user = new User();
+        //创建代理类，传入参数
+        Daili daili = new Daili(user);
+        //调用getProxy代理方法
+        A proxy = (A)daili.getProxy();
+
+        proxy.changGe("李四");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  结果</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/Aloctw/blog-img/image-20220420100827865.png"></p>
+<h3 id="4、总结："><a href="#4、总结：" class="headerlink" title="4、总结："></a>4、总结：</h3><p><img src="https://cdn.jsdelivr.net/gh/Aloctw/blog-img/image-20220420101151425.png"></p>
+
                 
             </div>
             <hr/>
@@ -500,7 +620,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/21/jdbc/">https://aloctw.github.io/2022/03/21/jdbc/</a>
+                    <a href="https://aloctw.github.io/2022/05/10/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">https://aloctw.github.io/2022/05/10/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,7 +1099,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
+                <a href="/2022/05/15/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
@@ -996,7 +1116,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
                         </span>
                         <span class="publish-author">
                             
@@ -1016,7 +1136,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/2022/04/17/Spring/">
                     <div class="card-image">
                         
                         
@@ -1033,7 +1153,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
                             </span>
                         <span class="publish-author">
                             

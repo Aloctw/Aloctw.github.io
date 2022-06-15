@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jdbc, Aloctw">
-    <meta name="description" content="">
+    <meta name="keywords" content="Aloctw">
+    <meta name="description" content="Java_数据传输之自写字节缓冲流一、字节缓冲输出流 java.io.BufferedOutputStream extends OutputStream
+ BufferedOutputStream：字节缓冲输出流。
+继承自父类的共性成员方法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jdbc | Aloctw</title>
+    <title>Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jdbc</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -437,15 +439,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -453,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-06-03
                 </div>
                 
 
@@ -474,7 +467,150 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="Java-数据传输之自写字节缓冲流"><a href="#Java-数据传输之自写字节缓冲流" class="headerlink" title="Java_数据传输之自写字节缓冲流"></a>Java_数据传输之自写字节缓冲流</h2><h3 id="一、字节缓冲输出流"><a href="#一、字节缓冲输出流" class="headerlink" title="一、字节缓冲输出流"></a>一、字节缓冲输出流</h3><p> java.io.BufferedOutputStream extends OutputStream</p>
+<p> BufferedOutputStream：字节缓冲输出流。</p>
+<p>继承自父类的共性成员方法：<br> public void close() ：关闭此输出流并释放与此流相关联的任何系统资源。</p>
+<p> public void flush() ：刷新此输出流并强制任何缓冲的输出字节被写出。</p>
+<p> public void write(byte[] b)：将 b.length字节从指定的字节数组写入此输出流。</p>
+<p> public void write(byte[] b, int off, int len) ：从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流。</p>
+<p> public abstract void write(int b) ：将指定的字节输出流。</p>
+<h4 id="构造方法："><a href="#构造方法：" class="headerlink" title="构造方法："></a>构造方法：</h4><p> BufferedOutputStream(OutputStream out) 创建一个新的缓冲输出流，以将数据写入指定的底层输出流。</p>
+<p> BufferedOutputStream(OutputStream out, int size) 创建一个新的缓冲输出流，以将具有指定缓冲区大小的数据写入指定的底层输出流。</p>
+<h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><p> OutputStream out：字节输出流，可以传递 FileOutputStream，缓冲流会给FileOutputStream增加一个缓冲区,提高FileOutputStream的写入效率</p>
+<p> int size：指定缓冲流内部缓冲区的大小，不指定默认。</p>
+<h4 id="使用步骤【重要】"><a href="#使用步骤【重要】" class="headerlink" title="使用步骤【重要】"></a>使用步骤【重要】</h4><p> ① 创建FileOutputStream对象,构造方法中绑定要输出的目的地</p>
+<p> ② 创建BufferedOutputStream对象,构造方法中传递FileOutputStream对象对象,提高FileOutputStream对象效率</p>
+<p> ③ 使用BufferedOutputStream对象中的方法write,把数据写入到内部缓冲区中</p>
+<p> ④ 使用BufferedOutputStream对象中的方法flush,把内部缓冲区中的数据,刷新到文件中</p>
+<p> ⑤ 释放资源(会先调用flush方法刷新数据)</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> throwsIOException <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">//1.创建FileOutputStream对象,构造方法中绑定要输出的目的地</span>
+
+    FileOutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"E:\\a.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//2.创建BufferedOutputStream对象,构造方法中传递FileOutputStream对象对象,提高FileOutputStream对象效率</span>
+
+    BufferedOutputStream bos <span class="token operator">=</span> <span class="token function">newBufferedOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//3.使用BufferedOutputStream对象中的方法write,把数据写入到内部缓冲区中</span>
+
+    bos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"我把数据写入到内部缓冲区中"</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//4.使用BufferedOutputStream对象中的方法flush,把内部缓冲区中的数据,刷新到文件中</span>
+
+    bos<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//5.释放资源(会先调用flush方法刷新数据,第4部可以省略)</span>
+
+    bos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二、字节缓冲输入流"><a href="#二、字节缓冲输入流" class="headerlink" title="二、字节缓冲输入流"></a>二、字节缓冲输入流</h3><p> java.io.BufferedInputStream extends InputStream</p>
+<p> BufferedInputStream:字节缓冲输入流</p>
+<h4 id="继承自父类的成员方法："><a href="#继承自父类的成员方法：" class="headerlink" title="继承自父类的成员方法："></a>继承自父类的成员方法：</h4><p> int read()从输入流中读取数据的下一个字节。</p>
+<p> int read(byte[] b) 从输入流中读取一定数量的字节，并将其存储在缓冲区数组 b 中。</p>
+<p> void close() 关闭此输入流并释放与该流关联的所有系统资源。</p>
+<h4 id="构造方法：-1"><a href="#构造方法：-1" class="headerlink" title="构造方法："></a>构造方法：</h4><p> BufferedInputStream(InputStream in) 创建一个 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用。</p>
+<p> BufferedInputStream(InputStream in, int size) 创建具有指定缓冲区大小的 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用。</p>
+<h4 id="参数：-1"><a href="#参数：-1" class="headerlink" title="参数："></a>参数：</h4><p> InputStream in：字节输入流，可以传递FileInputStream,缓冲流会给FileInputStream增加一个缓冲区,提高FileInputStream的读取效率</p>
+<p> int size：指定缓冲流内部缓冲区的大小，不指定默认。</p>
+<h4 id="使用步骤【重要】："><a href="#使用步骤【重要】：" class="headerlink" title="使用步骤【重要】："></a>使用步骤【重要】：</h4><p> ① 创建FileInputStream对象,构造方法中绑定要读取的数据源</p>
+<p> ② 创建BufferedInputStream对象,构造方法中传递FileInputStream对象,提高FileInputStream对象的读取效率</p>
+<p> ③ 使用BufferedInputStream对象中的方法read,读取文件</p>
+<p> ④ 释放资源</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> throwsIOException <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//1.创建FileInputStream对象,构造方法中绑定要读取的数据源</span>
+        FileInputStream fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"10_IO\\a.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//2.创建BufferedInputStream对象,构造方法中传递FileInputStream对象,提高FileInputStream对象的读取效率</span>
+        BufferedInputStream bis <span class="token operator">=</span> <span class="token function">newBufferedInputStream</span><span class="token punctuation">(</span>fis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//3.使用BufferedInputStream对象中的方法read,读取文件</span>
+        <span class="token comment" spellcheck="true">//int read()从输入流中读取数据的下一个字节。</span>
+        <span class="token comment" spellcheck="true">/*int len = 0;//记录每次读取到的字节*/</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len <span class="token operator">=</span> bis<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//int read(byte[] b) 从输入流中读取一定数量的字节，并将其存储在缓冲区数组 b 中。</span>
+        <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//存储每次读取的数据</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//记录每次读取的有效字节个数</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len <span class="token operator">=</span> bis<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//4.释放资源</span>
+        bis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="三、自写字节缓冲流"><a href="#三、自写字节缓冲流" class="headerlink" title="三、自写字节缓冲流"></a>三、自写字节缓冲流</h3><p>1、通过自写缓冲流更加理解数据在流中传输的底层原理</p>
+<p>2、不止是需要会用，更加需要去充分理解，让每一行代码化繁为简</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileNotFoundException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileOutputStream<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>OutputStream<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyBufferedOutputStream</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//成员属性</span>
+    <span class="token keyword">private</span> OutputStream out<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//定义缓冲区大小</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> DEFAULT_BUFFER_SIZE <span class="token operator">=</span> <span class="token number">8192</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//定义字节数组</span>
+    <span class="token keyword">private</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf_array<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//定义下标index</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//构造方法，创建字节数组对象，并将传来的数据长度赋给该对象</span>
+    <span class="token keyword">private</span> <span class="token function">MyBufferedOutputStream</span><span class="token punctuation">(</span><span class="token keyword">int</span> bufSize<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>buf_array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span>bufSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//构造方法，将传过来的字节输出流进行处理</span>
+    <span class="token keyword">public</span> <span class="token function">MyBufferedOutputStream</span><span class="token punctuation">(</span>OutputStream out<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>DEFAULT_BUFFER_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>out <span class="token operator">=</span> out<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//构造方法，将传过来的路径字符串进行处理</span>
+    <span class="token keyword">public</span> <span class="token function">MyBufferedOutputStream</span><span class="token punctuation">(</span>String filePath<span class="token punctuation">)</span> <span class="token keyword">throws</span> FileNotFoundException <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>DEFAULT_BUFFER_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//创建write()写入方法，并移动字节数组下标</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">int</span> date<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>buf_array<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span> date<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//创建flush()刷新方法，对缓冲区进行刷新，将缓冲区内数据写入进文件</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>buf_array<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 创建close()方法关闭流，实际上也是调用了flush()方法</span>
+    <span class="token comment" spellcheck="true">// 也是在这一步字节输出流才将数据写入目标文件</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 刷新缓冲区</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyBuffereddOutputStreamDemo</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 程序入口，测试自写字节缓冲流</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 创建输出流对象，如果没有目标文件将会自动创建目标文件</span>
+        OutputStream outputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\yang\\Desktop\\yangsir.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 使用自写字节缓冲流将输出流进行包装（套管子）</span>
+        MyBufferedOutputStream myBufferedOutputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyBufferedOutputStream</span><span class="token punctuation">(</span>outputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 测试</span>
+        myBufferedOutputStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token number">97</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        myBufferedOutputStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token number">98</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 关闭流，防止内存占用过多</span>
+        myBufferedOutputStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -500,7 +636,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/21/jdbc/">https://aloctw.github.io/2022/03/21/jdbc/</a>
+                    <a href="https://aloctw.github.io/2022/06/03/IO%E6%B5%81/">https://aloctw.github.io/2022/06/03/IO%E6%B5%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,7 +1115,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/">
+                <a href="/2022/07/03/ajax%E5%90%91%E5%90%8E%E7%AB%AF%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/">
                     <div class="card-image">
                         
                         
@@ -996,7 +1132,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
                         </span>
                         <span class="publish-author">
                             
@@ -1016,7 +1152,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/2022/05/15/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
@@ -1033,7 +1169,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
                             </span>
                         <span class="publish-author">
                             

@@ -6,7 +6,7 @@
   <link href="https://aloctw.github.io/atom.xml" rel="self"/>
   
   <link href="https://aloctw.github.io/"/>
-  <updated>2022-03-22T06:25:42.674Z</updated>
+  <updated>2022-05-25T11:29:04.815Z</updated>
   <id>https://aloctw.github.io/</id>
   
   <author>
@@ -15,6 +15,154 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/07/03/ajax%E5%90%91%E5%90%8E%E7%AB%AF%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/"/>
+    <id>https://aloctw.github.io/2022/07/03/ajax%E5%90%91%E5%90%8E%E7%AB%AF%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</id>
+    <published>2022-07-03T07:33:54.663Z</published>
+    <updated>2022-05-25T11:29:04.815Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;几种简单发送AJAX请求的方式&quot;&gt;&lt;a href=&quot;#几种简单发送AJAX请求的方式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/06/03/IO%E6%B5%81/"/>
+    <id>https://aloctw.github.io/2022/06/03/IO%E6%B5%81/</id>
+    <published>2022-06-03T07:36:31.868Z</published>
+    <updated>2022-04-15T08:26:02.921Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Java-数据传输之自写字节缓冲流&quot;&gt;&lt;a href=&quot;#Java-数据传输之自写字节缓冲流&quot; class=&quot;headerlink&quot; title=&quot;Java_数据传输之自写字节缓冲流&quot;&gt;&lt;/a&gt;Java_数据传输之自写字节缓冲流&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/05/15/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/"/>
+    <id>https://aloctw.github.io/2022/05/15/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/</id>
+    <published>2022-05-15T07:52:29.414Z</published>
+    <updated>2022-05-15T07:51:57.423Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、springboot自动配置&quot;&gt;&lt;a href=&quot;#一、springboot自动配置&quot; class=&quot;headerlink&quot; title=&quot;一、springboot自动配置&quot;&gt;&lt;/a&gt;一、springboot自动配置&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/05/10/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
+    <id>https://aloctw.github.io/2022/05/10/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
+    <published>2022-05-10T07:41:29.231Z</published>
+    <updated>2022-04-20T02:29:12.029Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、-动态代理模式&quot;&gt;&lt;a href=&quot;#一、-动态代理模式&quot; class=&quot;headerlink&quot; title=&quot;一、 动态代理模式&quot;&gt;&lt;/a&gt;一、 动态代理模式&lt;/h1&gt;&lt;p&gt;代理： 生成一个代理对象，来代理真实对象，从而控制真实对象的访问&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/04/17/Spring/"/>
+    <id>https://aloctw.github.io/2022/04/17/Spring/</id>
+    <published>2022-04-17T07:40:14.204Z</published>
+    <updated>2022-04-18T01:43:43.024Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、Spring-IOC&quot;&gt;&lt;a href=&quot;#一、Spring-IOC&quot; class=&quot;headerlink&quot; title=&quot;一、Spring IOC&quot;&gt;&lt;/a&gt;一、Spring IOC&lt;/h2&gt;&lt;h3 id=&quot;1、基础概念&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/04/17/Spring%20AOP/"/>
+    <id>https://aloctw.github.io/2022/04/17/Spring%20AOP/</id>
+    <published>2022-04-17T07:40:14.202Z</published>
+    <updated>2022-05-04T11:13:48.061Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、Spring-AOP&quot;&gt;&lt;a href=&quot;#一、Spring-AOP&quot; class=&quot;headerlink&quot; title=&quot;一、Spring AOP&quot;&gt;&lt;/a&gt;一、Spring AOP&lt;/h1&gt;&lt;h2 id=&quot;1、-什么是-AOP&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/"/>
+    <id>https://aloctw.github.io/2022/04/06/Mybatis%E5%85%A5%E9%97%A8/</id>
+    <published>2022-04-06T07:38:06.188Z</published>
+    <updated>2022-04-13T02:19:25.822Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、关于MyBatis&quot;&gt;&lt;a href=&quot;#一、关于MyBatis&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>jdbc</title>
