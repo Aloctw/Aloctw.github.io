@@ -4,21 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Aloctw">
-    <meta name="description" content="1.生命周期1.1 多线程生命周期的六种状态（官方文档）
-线程的状态我们可以在api文档中搜索Thread.State便可以得到下列的六种状态。
-
-
-
-线程状态
-描述
-官方解释（api）
-
-
-
-新建状态（NEW）
-创建线程对象
-线程尚未开始">
+    <meta name="keywords" content="留言板, Aloctw">
+    <meta name="description" content="十二加油站！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Aloctw</title>
+    <title>留言板 | Aloctw</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -324,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">留言板</h1>
                 </div>
             </div>
         </div>
@@ -457,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-07-02
                 </div>
                 
 
@@ -478,120 +465,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1.生命周期"></a>1.生命周期</h2><h3 id="1-1-多线程生命周期的六种状态（官方文档）"><a href="#1-1-多线程生命周期的六种状态（官方文档）" class="headerlink" title="1.1 多线程生命周期的六种状态（官方文档）"></a>1.1 多线程生命周期的六种状态（官方文档）</h3><ul>
-<li><p>线程的状态我们可以在api文档中搜索Thread.State便可以得到下列的六种状态。</p>
-<table>
-<thead>
-<tr>
-<th>线程状态</th>
-<th>描述</th>
-<th>官方解释（api）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>新建状态（NEW）</td>
-<td>创建线程对象</td>
-<td>线程尚未开始在这个国家</td>
-</tr>
-<tr>
-<td>可运行状态（RUNNABLE）</td>
-<td>start()方法</td>
-<td>正在java虚拟机中执行的线程</td>
-</tr>
-<tr>
-<td>阻塞状态（BLOCKED）</td>
-<td>无法获得锁对象</td>
-<td>受阻塞并等待某个监视器锁的线程</td>
-</tr>
-<tr>
-<td>无限等待状态（WAITING）</td>
-<td>wait()，join()方法</td>
-<td>处于这种状态的线程被无限期地等待另一个线程来执行特定的动作。</td>
-</tr>
-<tr>
-<td>超时等待状态（TIMEND_WAITING）</td>
-<td>sleep()方法</td>
-<td>无限期的等待另一个线程来执行某一特定操作的线程</td>
-</tr>
-<tr>
-<td>终止状态（TERMINATED）</td>
-<td>全部代码运行完毕</td>
-<td>已退出的线程处于这种状态</td>
-</tr>
-</tbody></table>
-<p>（附图）网上copy来的</p>
-<p><img src="C:\Users\Lucky\Desktop\1.jpg" alt="1"></p>
-</li>
-<li><p>Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态，线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换</p>
-</li>
-<li><p>这些状态是不反映任何操作系统线程状态的虚拟机状态</p>
-</li>
-</ul>
-<h3 id="1-2-生命周期六种状态源码"><a href="#1-2-生命周期六种状态源码" class="headerlink" title="1.2 生命周期六种状态源码"></a>1.2 生命周期六种状态源码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> State <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a thread which has not yet started.
-         */</span>
-        NEW<span class="token punctuation">,</span>
+                <pre class="line-numbers language-text"><code class="language-text"># 欢迎来到我的博客！
 
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a runnable thread.  A thread in the runnable
-         * state is executing in the Java virtual machine but it may
-         * be waiting for other resources from the operating system
-         * such as processor.
-         */</span>
-        RUNNABLE<span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a thread blocked waiting for a monitor lock.
-         * A thread in the blocked state is waiting for a monitor lock
-         * to enter a synchronized block/method or
-         * reenter a synchronized block/method after calling
-         * {@link Object#wait() Object.wait}.
-         */</span>
-        BLOCKED<span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a waiting thread.
-         * A thread is in the waiting state due to calling one of the
-         * following methods:
-         * &lt;ul>
-         *   &lt;li>{@link Object#wait() Object.wait} with no timeout&lt;/li>
-         *   &lt;li>{@link #join() Thread.join} with no timeout&lt;/li>
-         *   &lt;li>{@link LockSupport#park() LockSupport.park}&lt;/li>
-         * &lt;/ul>
-         *
-         * &lt;p>A thread in the waiting state is waiting for another thread to
-         * perform a particular action.
-         *
-         * For example, a thread that has called &lt;tt>Object.wait()&lt;/tt>
-         * on an object is waiting for another thread to call
-         * &lt;tt>Object.notify()&lt;/tt> or &lt;tt>Object.notifyAll()&lt;/tt> on
-         * that object. A thread that has called &lt;tt>Thread.join()&lt;/tt>
-         * is waiting for a specified thread to terminate.
-         */</span>
-        WAITING<span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a waiting thread with a specified waiting time.
-         * A thread is in the timed waiting state due to calling one of
-         * the following methods with a specified positive waiting time:
-         * &lt;ul>
-         *   &lt;li>{@link #sleep Thread.sleep}&lt;/li>
-         *   &lt;li>{@link Object#wait(long) Object.wait} with timeout&lt;/li>
-         *   &lt;li>{@link #join(long) Thread.join} with timeout&lt;/li>
-         *   &lt;li>{@link LockSupport#parkNanos LockSupport.parkNanos}&lt;/li>
-         *   &lt;li>{@link LockSupport#parkUntil LockSupport.parkUntil}&lt;/li>
-         * &lt;/ul>
-         */</span>
-        TIMED_WAITING<span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * Thread state for a terminated thread.
-         * The thread has completed execution.
-         */</span>
-        TERMINATED<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+> 欢迎在这里留言！任何问题都可以在这里留言，我会及时回复的，添加email可以获得更快的回复速度，在nickname栏目输入QQ号可以直接获取你的QQ头像。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -618,7 +495,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</a>
+                    <a href="https://aloctw.github.io/guestbook/index.html">https://aloctw.github.io/guestbook/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1093,54 +970,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/14/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B/">
+                <a href="/guestbook/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="留言板">
                         
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Aloctw
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">留言板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1151,7 +992,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -1161,6 +1002,45 @@
                         </span>
                     </div>
                 </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/guestbook/index.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="留言板">
+                        
+                        <span class="card-title">留言板</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Aloctw
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
             </div>
         </div>
