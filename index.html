@@ -576,6 +576,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
+                                Redis 缓存异常一、缓存雪崩  缓存雪崩是指缓存的 key 在同一时间大面积的失效，所以后面的请求都会落到数据库上面，造成数据库在短时间内承受大量请求而宕机。
+解决方案：
+
+缓存数据的过期时间设置随机，防止同一时间大量数据同时过期现象发
+                            
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">

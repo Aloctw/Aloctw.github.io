@@ -6,7 +6,7 @@
   <link href="https://aloctw.github.io/atom.xml" rel="self"/>
   
   <link href="https://aloctw.github.io/"/>
-  <updated>2022-07-09T11:35:12.691Z</updated>
+  <updated>2022-07-10T12:19:16.588Z</updated>
   <id>https://aloctw.github.io/</id>
   
   <author>
@@ -21,8 +21,16 @@
     <link href="https://aloctw.github.io/2022/07/09/redis%E7%A9%BF%E9%80%8F%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E9%9B%AA%E5%B4%A9/"/>
     <id>https://aloctw.github.io/2022/07/09/redis%E7%A9%BF%E9%80%8F%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E9%9B%AA%E5%B4%A9/</id>
     <published>2022-07-09T11:31:21.000Z</published>
-    <updated>2022-07-09T11:35:12.691Z</updated>
+    <updated>2022-07-10T12:19:16.588Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Redis-缓存异常&quot;&gt;&lt;a href=&quot;#Redis-缓存异常&quot; class=&quot;headerlink&quot; title=&quot;Redis 缓存异常&quot;&gt;&lt;/a&gt;Redis 缓存异常&lt;/h1&gt;&lt;h2 id=&quot;一、缓存雪崩&quot;&gt;&lt;a href=&quot;#一、缓存雪崩&quot;</summary>
+        
+      
     
     
     
@@ -217,27 +225,6 @@
   
   <entry>
     <title></title>
-    <link href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2022-03-14T03:39:44.610Z</published>
-    <updated>2022-03-02T01:37:39.041Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-生命周期&quot;&gt;&lt;a href=&quot;#1-生命周期&quot; class=&quot;headerlink&quot; title=&quot;1.生命周期&quot;&gt;&lt;/a&gt;1.生命周期&lt;/h2&gt;&lt;h3 id=&quot;1-1-多线程生命周期的六种状态（官方文档）&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
     <link href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
     <published>2022-03-14T03:39:44.610Z</published>
@@ -249,6 +236,27 @@
         
         
     <summary type="html">&lt;h2 id=&quot;1、线程与线程&quot;&gt;&lt;a href=&quot;#1、线程与线程&quot; class=&quot;headerlink&quot; title=&quot;1、线程与线程&quot;&gt;&lt;/a&gt;1、线程与线程&lt;/h2&gt;&lt;h3 id=&quot;1-1-进程&quot;&gt;&lt;a href=&quot;#1-1-进程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>https://aloctw.github.io/2022/03/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
+    <published>2022-03-14T03:39:44.610Z</published>
+    <updated>2022-03-02T01:37:39.041Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-生命周期&quot;&gt;&lt;a href=&quot;#1-生命周期&quot; class=&quot;headerlink&quot; title=&quot;1.生命周期&quot;&gt;&lt;/a&gt;1.生命周期&lt;/h2&gt;&lt;h3 id=&quot;1-1-多线程生命周期的六种状态（官方文档）&quot;&gt;&lt;a</summary>
         
       
     
