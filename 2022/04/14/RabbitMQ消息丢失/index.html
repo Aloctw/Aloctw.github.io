@@ -472,7 +472,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="RabbitMQ消息丢失"><a href="#RabbitMQ消息丢失" class="headerlink" title="RabbitMQ消息丢失"></a>RabbitMQ消息丢失</h1><p>消息从生产到消费经过三个环节： 生产–&gt;MQ Broker –&gt; 消费  这三个环节都有丢失消息的可能。 </p>
-<p><img src="/../img/bg1/posts/RabbitMQ%E6%B6%88%E6%81%AF%E6%B5%81%E7%A8%8B.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Aloctw/blog-img/RabbitMQ%E6%B6%88%E6%81%AF%E6%B5%81%E7%A8%8B.png"></p>
 <h2 id="一、生产者丢失消息"><a href="#一、生产者丢失消息" class="headerlink" title="一、生产者丢失消息"></a>一、生产者丢失消息</h2><p>&amp;emsp;&amp;emsp;原因：网络传输不稳定，从生产者到MQ的传输过程中，MQ未收到消息，而生产者认为任务完成不会重复发送，从而导致消息丢失。有两种方式可以解决该问题：事务机制和confirm通知机制。</p>
 <h3 id="方式一：事务机制"><a href="#方式一：事务机制" class="headerlink" title="方式一：事务机制"></a>方式一：事务机制</h3><p>&amp;emsp;&amp;emsp;RabbitMQ提供了事务功能，生产者发送消息之前开启事务 channel.txSelect，然后发送消息，如果消息没有成功接收则报异常，此时回滚事务，channel.txRollback，然后重试发送消息，成功则提交事务channel.txCommit。</p>
 <pre class="line-numbers language-txt"><code class="language-txt">// 开启事务
