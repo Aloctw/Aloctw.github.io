@@ -543,7 +543,7 @@ Redis 可以存储键和五种不同类型的值之间的映射，键的类型�
 <li>从Redis接收到后，会载入快照文件并且执行收到的缓存的命令</li>
 <li>之后，主Redis每当接收到写命令时就会将命令发送从Redis，从而保证数据的一致</li>
 </ul>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p>&amp;emsp;&amp;emsp;所有的Slave节点的复制和同步都是由Master节点来处理，会造成Master节点的压力太大。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p>所有的Slave节点的复制和同步都是由Master节点来处理，会造成Master节点的压力太大。</p>
 <h2 id="4、哨兵模式"><a href="#4、哨兵模式" class="headerlink" title="4、哨兵模式"></a>4、哨兵模式</h2><p>哨兵：Sentinel，是Redis集群架构中非常重要的一个组件。</p>
 <ul>
 <li><p>集群监控：负责监控Redis Master和Slave进程是否正常工作。</p>
@@ -561,9 +561,9 @@ Redis 可以存储键和五种不同类型的值之间的映射，键的类型�
 <li>故障转移时，判断一个Master node是否宕机了，需要大部分的哨兵同意才行，涉及到了选举机制的问题。</li>
 <li>即使部分哨兵节点挂掉了，哨兵集群还是能正常工作的，因为如果一个作为高可用机制的重要组成部分的故障转移系统本身还是一个单点的，那就非常坑了。</li>
 </ul>
-<p>&amp;emsp;&amp;emsp;<strong>哨兵至少需要三个实例，才能保持本身的健壮性。</strong></p>
-<p><strong>&amp;emsp;&amp;emsp;哨兵+主从部署架构，是不保存数据百分百不丢失的，只能保证Redis集群的高可用性。</strong></p>
-<p><strong>&amp;emsp;&amp;emsp;对于哨兵+主从部署架构，需要在测试环境和生产环境中充分的进行测试。</strong></p>
+<p><strong>哨兵至少需要三个实例，才能保持本身的健壮性。</strong></p>
+<p><strong>哨兵+主从部署架构，是不保存数据百分百不丢失的，只能保证Redis集群的高可用性。</strong></p>
+<p><strong>对于哨兵+主从部署架构，需要在测试环境和生产环境中充分的进行测试。</strong></p>
 
                 
             </div>
